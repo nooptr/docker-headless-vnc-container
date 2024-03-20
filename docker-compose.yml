@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-      shm_size: "1gb"
+      shm_size: "512m"
       dockerfile: Dockerfile
     environment:
       - LANG=C.UTF-8
