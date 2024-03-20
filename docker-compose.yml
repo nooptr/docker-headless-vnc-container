@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      shm_size: "1gb"
+      dockerfile: Dockerfile
+    environment:
+      - LANG=C.UTF-8
+      - VNC_RESOLUTION=1920x1080
+      - VNC_PW=thang123
+    image: thangnvbkhn/rocky9_vnc:latest
+    shm_size: '1gb'
+    user: 0:0
+    ports:
+      - 15901:5901
+    volumes:
+      - app-data:/home
+    restart: always
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+volumes:
+  app-data:
